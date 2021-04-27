@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Sam Eigen">
+    <meta name="description" content="https://eigen.sh/">
+    <meta name="keywords" content="blog,developer,personal,cardano,staking,pool,cybersecurity,netsec,cybersec,python">
+
+    <meta property="og:site_name" content="eigen.sh">
+    <meta property="og:title" content="
+  Predicting the 2020 Presidential Election using Support Vector Regression - eigen.sh
+">
+    <meta property="og:description" content="Presidential Machine Learning Modeling">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eigen.sh/projects/pres-ml/">
+    <meta property="og:image" content="https://eigen.sh/images/tn.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="https://eigen.sh/projects/pres-ml/">
+    <meta name="twitter:image" content="https://eigen.sh/images/tn.png">
+
+    <base href="https://eigen.sh/projects/pres-ml/">
+    <title>
+  Predicting the 2020 Presidential Election using Support Vector Regression - eigen.sh
+</title>
+
+    <link rel="canonical" href="https://eigen.sh/projects/pres-ml/">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    <link rel="stylesheet" href="/css/normalize.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    
+      <link rel="alternate" href="https://eigen.sh/index.xml" type="application/rss+xml" title="eigen.sh">
+      <link href="https://eigen.sh/index.xml" rel="feed" type="application/rss+xml" title="eigen.sh" />
+    
+
+    <meta name="generator" content="Hugo 0.82.0" />
+  </head>
+
+  <body class="">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">eigen.sh</a>
+    <input type="checkbox" id="menu-control"/>
+    <label class="menu-mobile  float-right " for="menu-control">
+      <span class="btn-mobile  float-right ">&#9776;</span>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item  align-center ">
+              <a class="navigation-link" href="https://eigen.sh/posts">Blog</a>
+            </li>
+          
+            <li class="navigation-item  align-center ">
+              <a class="navigation-link" href="https://eigen.sh/projects">Projects</a>
+            </li>
+          
+            <li class="navigation-item  align-center ">
+              <a class="navigation-link" href="https://eigen.sh/blockchain">Blockchain</a>
+            </li>
+          
+            <li class="navigation-item  align-center ">
+              <a class="navigation-link" href="https://eigen.sh/about">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    </label>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Predicting the 2020 Presidential Election using Support Vector Regression</h1>
+    </header>
+
+    <h3 id="introduction">Introduction</h3>
+<p>I want to preface this by saying that this is a model that I created in college in one of my Machine Learning classes for a final project in 2016, but I figured it was cool enough to display publicly. Licenced by Tulane University Computer Science.
+Now it is 2021, and the 2020 Presidential Election has concluded. Let&rsquo;s see how young Sam did on his ML model compared to what actually happened!</p>
+<p>The political landscape in the United States is without a doubt the most divided it has been since possibly the Reconstructionist era after the Civil War. One aspect of the modern political apparatus has remained constant though: there are some states, and even individual COUNTIES, that almost always vote in favor of the winning candidate in the general election. Here&rsquo;s an example: Westmoreland County in Virgia &ndash; a small, agrarian town south of DC &ndash; only failed to vote correctly in the General Election one time since 1928. Keep in mind that this remained constant as Nixon famously shifted once blue states red and vice-versa.</p>
+<p>Why does this happen? How is it even possible for one state let alone one county to be so &ldquo;hyper-intelligent&rdquo; to be so correct when there are pollsters and massive corporations who spend billions to predict these elections but in the end always seem to slightly (or majorly, as seen in 2016) wrong?</p>
+<h3 id="data">Data</h3>
+<p>Training an entire model to focus on just one county is silly. The aforementioned county in Virgia is so sparsely populated that there wouldn&rsquo;t even be enough data to justify what could be seen as a pseudo-ML model.
+Instead, I took all of the counties from Pennsylvania (famously a swing state) and decided to train the models based on that.
+What do I want to figure out?</p>
+<ul>
+<li>What socioeconomic, geographic, and political structures in an individual househould most accurately predicts how this household will vote?</li>
+</ul>
+<p>How will we model this?</p>
+<ul>
+<li>A massive dataset (woooo machine learning!) that accounts for all socioeconomic and geographic statuses of all households in each individual PA county (see below)</li>
+<li>Historical presidential election data in the state of Pennsylvania as well as their individual counties</li>
+<li>President Obama&rsquo;s 2008 election results and Secretary Hillary Clinton&rsquo;s 2012 election results</li>
+</ul>
+<p>A few attributes that we are training on (see the rest <a href="https://github.com/k0ley/Projects/tree/master/Machine%20Learning/President%20Model">here</a>):</p>
+<table>
+<thead>
+<tr>
+<th>column_name</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AGE775214</td>
+<td>Persons 65 years and over, percent, 2014</td>
+</tr>
+<tr>
+<td>SEX255214</td>
+<td>Female persons, percent, 2014</td>
+</tr>
+<tr>
+<td>RHI125214</td>
+<td>White alone, percent, 2014</td>
+</tr>
+<tr>
+<td>RHI225214</td>
+<td>Black or African American alone, percent, 2014</td>
+</tr>
+<tr>
+<td>RHI625214</td>
+<td>Two or More Races, percent, 2014</td>
+</tr>
+<tr>
+<td>RHI825214</td>
+<td>White alone, not Hispanic or Latino, percent, 2014</td>
+</tr>
+<tr>
+<td>HSG445213</td>
+<td>Homeownership rate, 2009-2013</td>
+</tr>
+<tr>
+<td>HSG495213</td>
+<td>Median value of owner-occupied housing units, 2009-2013</td>
+</tr>
+<tr>
+<td>HSD410213</td>
+<td>Households, 2009-2013</td>
+</tr>
+<tr>
+<td>HSD310213</td>
+<td>Persons per household, 2009-2013</td>
+</tr>
+<tr>
+<td>INC910213</td>
+<td>Per capita money income in past 12 months (2013 dollars), 2009-2013</td>
+</tr>
+<tr>
+<td>INC110213</td>
+<td>Median household income, 2009-2013</td>
+</tr>
+<tr>
+<td>PVY020213</td>
+<td>Persons below poverty level, percent, 2009-2013</td>
+</tr>
+<tr>
+<td>POP060210</td>
+<td>Population per square mile, 2010</td>
+</tr>
+</tbody>
+</table>
+<h3 id="why-svr">Why SVR?</h3>
+<p>I could get into the nitty gritty about the algorithms that make SVR work, but generally speaking one would use SVR to solve the same problems you would solve linear regression with. The key difference is that SVR also allows us to model non-linear relationships between variables and yields more flexibility to adjust the model by fine-tuning hyper-parameters in the code.</p>
+<h3 id="code">Code!</h3>
+<p>Importing some necessary modules, defining our features, importing csv data (in retrospect, CSV data is not ideal! if I refactored this today I would do it differently.)</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">utils</span>
+
+<span class="n">Features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fips&#39;</span><span class="p">,</span> <span class="s1">&#39;AGE775214&#39;</span><span class="p">,</span> <span class="s1">&#39;SEX255214&#39;</span><span class="p">,</span> <span class="s1">&#39;RHI125214&#39;</span><span class="p">,</span> <span class="s1">&#39;RHI225214&#39;</span><span class="p">,</span> <span class="s1">&#39;RHI325214&#39;</span><span class="p">,</span>
+<span class="s1">&#39;RHI425214&#39;</span><span class="p">,</span> <span class="s1">&#39;RHI525214&#39;</span><span class="p">,</span> <span class="s1">&#39;RHI625214&#39;</span><span class="p">,</span> <span class="s1">&#39;RHI725214&#39;</span><span class="p">,</span> <span class="s1">&#39;RHI825214&#39;</span><span class="p">,</span> <span class="s1">&#39;POP715213&#39;</span><span class="p">,</span> <span class="s1">&#39;POP645213&#39;</span><span class="p">,</span>
+<span class="s1">&#39;EDU685213&#39;</span><span class="p">,</span> <span class="s1">&#39;VET605213&#39;</span><span class="p">,</span> <span class="s1">&#39;LFE305213&#39;</span><span class="p">,</span> <span class="s1">&#39;HSG010214&#39;</span><span class="p">,</span> <span class="s1">&#39;HSG445213&#39;</span><span class="p">,</span> <span class="s1">&#39;HSG495213&#39;</span><span class="p">,</span> <span class="s1">&#39;HSD410213&#39;</span><span class="p">,</span>
+<span class="s1">&#39;HSD310213&#39;</span><span class="p">,</span> <span class="s1">&#39;INC910213&#39;</span><span class="p">,</span> <span class="s1">&#39;INC110213&#39;</span><span class="p">,</span> <span class="s1">&#39;PVY020213&#39;</span><span class="p">,</span> <span class="s1">&#39;SBO001207&#39;</span><span class="p">,</span> <span class="s1">&#39;LND110210&#39;</span><span class="p">,</span> <span class="s1">&#39;POP060210&#39;</span><span class="p">]</span>
+
+<span class="c1">#take in 4 datasets: labels explained, county data,  presidential voting data in 2012, and voting data in 2016</span>
+<span class="n">featuresExplained</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;labels.csv&#34;</span><span class="p">)</span>
+<span class="n">CountyData</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;county data.csv&#34;</span><span class="p">)</span>
+<span class="n">VotingData</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;lineardata.csv&#34;</span><span class="p">)</span>
+<span class="n">FutureData</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;clintondata.csv&#34;</span><span class="p">)</span>
+</code></pre></div><p>Next, we want to preprocess our data to reduce outliers, extreme complexity, and just overall train our model in a much cleaner fashion.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">S</span> <span class="o">=</span> <span class="n">CountyData</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">27</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">VotingData</span><span class="o">.</span><span class="n">values</span>
+<span class="n">future</span> <span class="o">=</span> <span class="n">FutureData</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">sc_S</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">sc_t</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">sc_2020</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">()</span>
+</code></pre></div><p>Lastly, let&rsquo;s train our model! You can see I commented out the poly-algorithm as it gave slightly worse results, but still a very viable option for complex datasets like this.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">S2</span> <span class="o">=</span> <span class="n">sc_S</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">sc_t</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">futureElection</span> <span class="o">=</span> <span class="n">sc_2020</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">future</span><span class="p">)</span>
+
+<span class="c1">#support vector regression</span>
+<span class="c1"># clf = SVR(kernel=&#39;poly&#39;, degree=3, verbose=True) #gamma=&#39;auto&#39;</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span>
+<span class="n">initial</span> <span class="o">=</span> <span class="n">sc_t</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sc_S</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">S</span><span class="p">)))</span>
+<span class="n">new</span> <span class="o">=</span> <span class="n">sc_2020</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sc_S</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">S</span><span class="p">)))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">futureElection</span><span class="p">))</span>
+</code></pre></div><ul>
+<li>78.4% accuracy for kernel = &lsquo;poly&rsquo;</li>
+<li>79.8% accuracy for kernel = &lsquo;rbf&rsquo;</li>
+<li>88.65% accuracy for kernel = &lsquo;linear&rsquo;</li>
+</ul>
+<h3 id="visualization">Visualization</h3>
+<p>Let&rsquo;s chat. Below is a little chart I put together in Jupyter to ascertain our first question: what feature has the most impact on deciding a counties voting shift?
+<img src="/images/chart.png" alt="election-vis"></p>
+<p>The highest weighted coefficients:</p>
+<ul>
+<li>Population</li>
+<li>Median household income</li>
+<li>% of people below the federal poverty level</li>
+</ul>
+<p>The lowest weighted coefficients:</p>
+<ul>
+<li>American Indian or Alaskan %</li>
+<li>Mean Travel Time to Work</li>
+</ul>
+<p>This code to visualize this data is all public on my GitHub <a href="https://github.com/k0ley">here</a>.</p>
+<h3 id="final-remarks">Final Remarks</h3>
+<p>My Machine Learning model built in 2016 to predict 2020 GE results for PA, visualized:</p>
+<p><img src="/images/2016.png" alt="2016"></p>
+<p>The actual election results in 2020 for PA, visualized:</p>
+<p><img src="/images/2020.png" alt="2020"></p>
+<p>Maybe you can tell, but the model was only wrong about one county! :) (looking at you, erie county)</p>
+<p>Not all is good though. Let&rsquo;s talk about how this model could potentially be misleading, as well as give some political-economic insight through some widely accepted theorems.</p>
+<ul>
+<li><strong>Downs Median Voter Theorem</strong>
+<ul>
+<li>We are essentially clumping all individual counties as one person. While this works in theory, it directly goes against downs median voter theorem, which stipulates that &ldquo;if voters and policies are distributed along a one-dimensional spectrum, with voters ranking alternatives in order of proximity, then any voting method which satisfies the Condorcet criterion will elect the candidate closest to the median voter. In particular, a majority vote between two options will do so.&rdquo;</li>
+</ul>
+</li>
+<li><strong>Can&rsquo;t account for Voter Turnout</strong>
+<ul>
+<li>Well of course we could in retrospect, but at the time we had no clue who would turn out! In fact, there is no publicly available historical turnout data or else we would have integrated it into the model.</li>
+</ul>
+</li>
+<li><strong>Inherit Bias</strong>
+<ul>
+<li>Joe Biden built his political career in Delaware. Growing up in South Jersey, the entire tri-state area is essentially politically linked. People from Philly certainly could have voted for Joe Biden as a one-issue voter due to the fact that he is a Phillies fan. Who knows?</li>
+</ul>
+</li>
+</ul>
+<h3 id="related-works">Related Works</h3>
+<p><a href="https://www.researchgate.net/publication/319617652_Modeling_and_Forecasting_US_Presidential_Election_Using_Learning_Algorithms">Mohammed Zolghadr, Seyed Armin Akhavan Niaki, S. T. A. Niaki - Modeling and Forecasting US presidential election using learning algorithms</a></p>
+<p><a href="http://cs229.stanford.edu/proj2017/final-reports/5232542.pdf">Tynan Challenor - Predicting Votes from Census Data</a></p>
+
+  </article>
+</section>
+
+
+      </div>
+      
+        <footer class="footer">
+  <section class="container">
+    
+      <div class="sns-shares sp-sns-shares">
+        
+          <a class="sns-share twitter-share" href="https://twitter.com/intent/tweet?original_referer=https%3a%2f%2feigen.sh%2fprojects%2fpres-ml%2f&ref_src=twsrc%5Etfw&text=Predicting%20the%202020%20Presidential%20Election%20using%20Support%20Vector%20Regression eigen.sh&tw_p=tweetbutton&url=https%3a%2f%2feigen.sh%2fprojects%2fpres-ml%2f"><i class="fab fa-twitter"></i></a>
+        
+        
+        
+        
+        
+          <a class="sns-share linkedIn-share" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2feigen.sh%2fprojects%2fpres-ml%2f"><i class="fab fa-linkedin"></i></a>
+        
+      </div>
+    
+    
+     
+
+  </section>
+</footer>
+<div class="fixed-bar">
+  <section class="container">
+    
+      <p id="privateTriggerText">Current projects: <a id="privateTrigger">:)</a></p>
+    
+    
+      <div class="sns-shares pc-sns-shares">
+        
+          <a class="sns-share twitter-share" href="https://twitter.com/intent/tweet?original_referer=https%3a%2f%2feigen.sh%2fprojects%2fpres-ml%2f&ref_src=twsrc%5Etfw&text=Predicting%20the%202020%20Presidential%20Election%20using%20Support%20Vector%20Regression eigen.sh&tw_p=tweetbutton&url=https%3a%2f%2feigen.sh%2fprojects%2fpres-ml%2f"><i class="fab fa-twitter"></i></a>
+        
+        
+        
+        
+        
+          <a class="sns-share linkedIn-share" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2feigen.sh%2fprojects%2fpres-ml%2f"><i class="fab fa-linkedin"></i></a>
+        
+      </div>
+    
+  </section>
+</div>
+
+      
+    </main>
+
+    
+
+  <script src="/js/app.js"></script>
+  
+  <script>
+  (function($) {
+    $(function() {
+      $('#privateTrigger').on('click', function() {
+        $('.private').slideToggle();
+        $('#privateTriggerText').text("Please don\u0027t hesitate to reach out if you have any questions!");
+      });
+    });
+   })(jQuery);
+  </script>
+  
+  </body>
+</html>

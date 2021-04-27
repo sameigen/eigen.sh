@@ -6,7 +6,16 @@
     <description>Recent content on eigen.sh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Apr 2021 13:46:42 -0500</lastBuildDate><atom:link href="https://eigen.sh/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Apr 2021 13:46:42 -0500</lastBuildDate><atom:link href="https://eigen.sh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Predicting the 2020 Presidential Election using Support Vector Regression</title>
+      <link>https://eigen.sh/projects/pres-ml/</link>
+      <pubDate>Tue, 27 Apr 2021 13:46:42 -0500</pubDate>
+      
+      <guid>https://eigen.sh/projects/pres-ml/</guid>
+      <description>Introduction I want to preface this by saying that this is a model that I created in college in one of my Machine Learning classes for a final project in 2016, but I figured it was cool enough to display publicly. Licenced by Tulane University Computer Science. Now it is 2021, and the 2020 Presidential Election has concluded. Let&amp;rsquo;s see how young Sam did on his ML model compared to what actually happened!</description>
+    </item>
+    
     <item>
       <title>Eigen.sh - an overview</title>
       <link>https://eigen.sh/posts/goals/</link>
