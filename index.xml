@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>eigen.sh</title>
-    <link>https://eigen.sh/</link>
+    <link>http://eigen.sh/</link>
     <description>Recent content on eigen.sh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Apr 2021 13:46:42 -0500</lastBuildDate><atom:link href="https://eigen.sh/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Apr 2021 13:46:42 -0500</lastBuildDate><atom:link href="http://eigen.sh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Eigen.sh - an overview</title>
-      <link>https://eigen.sh/posts/goals/</link>
+      <link>http://eigen.sh/posts/goals/</link>
       <pubDate>Mon, 26 Apr 2021 13:46:42 -0500</pubDate>
       
-      <guid>https://eigen.sh/posts/goals/</guid>
+      <guid>http://eigen.sh/posts/goals/</guid>
       <description>Hello! My name is Sam Eigen. I graduated from Tulane University with a double major in Political Economy and Computer Science in May of 2020! Ever since then (COVID!) I&amp;rsquo;ve been stuck in my room going nuts! How nuts you may ask?
 In the span of this past year, I have:
  Learned how to develop, deploy, and manage a full-stack iOS application w/ a super fun and collaborative AGILE team Became one of those annoying Vim people (sorry VSCode) Received all certifications in a major SIEM - shoutout Sumo Logic!</description>
