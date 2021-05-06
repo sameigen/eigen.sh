@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Sam Eigen">
+    <meta name="description" content="https://eigen.sh/">
+    <meta name="keywords" content="blog,developer,personal,cardano,staking,pool,cybersecurity,netsec,cybersec,python">
+
+    <meta property="og:site_name" content="eigen.sh">
+    <meta property="og:title" content="
+  Manually Staking Cardano (ADA) to Maximize Passive Income - eigen.sh
+">
+    <meta property="og:description" content="How to Manually Stake Cardano (ADA)">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eigen.sh/blockchain/manual-ada-staking/">
+    <meta property="og:image" content="https://eigen.sh/images/thumb.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="https://eigen.sh/blockchain/manual-ada-staking/">
+    <meta name="twitter:image" content="https://eigen.sh/images/thumb.png">
+
+    <base href="https://eigen.sh/blockchain/manual-ada-staking/">
+    <title>
+  Manually Staking Cardano (ADA) to Maximize Passive Income - eigen.sh
+</title>
+
+    <link rel="canonical" href="https://eigen.sh/blockchain/manual-ada-staking/">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    <link rel="stylesheet" href="/css/normalize.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    
+      <link rel="alternate" href="https://eigen.sh/index.xml" type="application/rss+xml" title="eigen.sh">
+      <link href="https://eigen.sh/index.xml" rel="feed" type="application/rss+xml" title="eigen.sh" />
+    
+
+    <meta name="generator" content="Hugo 0.82.1" />
+  </head>
+
+  <body class="">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">eigen.sh</a>
+    <input type="checkbox" id="menu-control"/>
+    <label class="menu-mobile  float-right " for="menu-control">
+      <span class="btn-mobile  float-right ">&#9776;</span>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item  align-center ">
+              <a class="navigation-link" href="https://eigen.sh/posts">Blog</a>
+            </li>
+          
+            <li class="navigation-item  align-center ">
+              <a class="navigation-link" href="https://eigen.sh/projects">Projects</a>
+            </li>
+          
+            <li class="navigation-item  align-center ">
+              <a class="navigation-link" href="https://eigen.sh/blockchain">Blockchain</a>
+            </li>
+          
+            <li class="navigation-item  align-center ">
+              <a class="navigation-link" href="https://eigen.sh/about">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    </label>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Manually Staking Cardano (ADA) to Maximize Passive Income</h1>
+    </header>
+
+    <h1 id="introduction">Introduction</h1>
+<p>Would you like to make true 7% passive income off of your crypto? Sounds too good to be true right? Let&rsquo;s talk.</p>
+<p>In this guide we will be going over to how to manually stake Cardano to maximize rewards. The term &ldquo;staking&rdquo; may seem scary to crypto newbies, but this is really just a misnomer. We are following the Proof-of-<strong>Stake</strong> protocol, not <em>staking</em> our money in terms of gambling it! You have the power to withdraw your funds at any time throughout this entire process and the only time the money you deposit will be less than or equal to the money you bought off an exchange will be if the price of the coin itself fluctuates.</p>
+<p>Before we move on: this guide assumes you simply want the most ROI, so we will pick a big stake pool operator instead of a small one (more on this to come).</p>
+<ul>
+<li>We will also assume that you know what Cardano is and have done your own private research that is publicly out there on the internet!</li>
+<li>This is in no way financial advice of any kind.</li>
+</ul>
+<p>Now, let&rsquo;s get on to the fun stuff. I want to make this guide as accessible as possible, so I will assume you have no technical knowledge whatsoever (good news - none is needed!).</p>
+<h1 id="prerequisites">Prerequisites</h1>
+<ul>
+<li>Windows, Mac, or Linux Operating System</li>
+<li>A decent internet connection</li>
+<li>At least 10 ADA (Cardano - see below)</li>
+</ul>
+<p>Not bad, right?</p>
+<h1 id="how-to-purchase-ada-cardano">How to Purchase ADA (Cardano)</h1>
+<p>There are so many cryptocurrency exchanges out there that it is tough to recommend only one. Some offer ADA (Cardano), others don&rsquo;t. For exchanges that offer this particular cryptocurrency in the United States, I would say great options are <a href="https://accounts.binance.us/en/register?ref=54870708">Binance.US</a> and <a href="https://www.kraken.com/">Kraken</a>.</p>
+<ul>
+<li>Both of these exchanges are trusted around the crypto community, but do your own research for what exchange works best for you.</li>
+<li>See: <a href="https://www.fxempire.com/crypto/exchanges/cardano/united-states">What is the best exchange to buy ADA?</a></li>
+</ul>
+<p>Please reference the directions of your exchange to deposit and purchase ADA. Typically the directions are as follows:</p>
+<ul>
+<li>If you are a brand new user, verify your account using gov&rsquo;t ID (sometimes takes a couple days)</li>
+<li>After verified, deposit USD using a linked bank account, credit card, paypal, or any other viable option that you prefer that you exchange offers.</li>
+<li>Buy at least 10 ADA using USD (around $15 at the time of writing this as 1.46 ADA = 1 USD)</li>
+<li>One this is complete, move on to the next section of this guide!</li>
+</ul>
+<h1 id="staking">Staking</h1>
+<p>Staking cryptocurrency is the premier way to make passive income off of your crypto. Without getting into the nonsensical technical jargon, we are essentially helping this blockchain mint new &ldquo;blocks&rdquo; - if you don&rsquo;t understand this, it doesn&rsquo;t matter. All you have to know is that by doing this, the Cardano developers will pay you out in rewards, up to 7% (sometimes more!) completely passively. In order to do this with, you must download a special &ldquo;wallet&rdquo; called Daedalus that is intertwined with the developers on Cardano - this program holds the wallet that you transfer your ADA into.</p>
+<ul>
+<li><a href="https://daedaluswallet.io/en/download/">Download Daedalus here for your OS and install normally</a></li>
+</ul>
+<p>Once installed, open Daedalus. The first popup that Daedalus will prompt you with will look like this:</p>
+<p><img src="/images/blockchain/ada-tutorial/createwallet.png" alt="Create Wallet"></p>
+<p>Next, we want to select &ldquo;Create&rdquo; to create a new wallet.</p>
+<p>Name your wallet and enter a spending password. This password will be used later, so don&rsquo;t forget it!</p>
+<ul>
+<li>Your wallet name can be anything. In this case, I named mine &ldquo;Eig-test-wallet&rdquo;</li>
+</ul>
+<p><img src="/images/blockchain/ada-tutorial/walletname.png" alt="Wallet Name"></p>
+<p>Next, let&rsquo;s talk a little about recovery phrases. This is <strong>THE</strong> phrase that you must write down. If you ever lose access to your wallet, <strong>THIS RECOVERY PHRASE</strong> is the only way to get it back. It is randomly generated and is unique to every wallet on the entire Cardano blockchain.</p>
+<ul>
+<li>Daedalus will reiterate what I just told you about just how important this phrase is.</li>
+<li>They will make you type it back in after you wrote it down! I didn&rsquo;t display this just to emphasize how <strong>personal</strong> this passphrase really is. :)</li>
+</ul>
+<p><img src="/images/blockchain/ada-tutorial/recoveryaccept.png" alt="Recovery"></p>
+<p>Hang in tight! Once your wallet is created, your wallet has to sync with the servers of the blockchain.</p>
+<ul>
+<li>This can take anywhere from 20 minutes to a few hours depending on the speed of your internet.</li>
+<li>Don&rsquo;t worry, this takes long for everyone! Don&rsquo;t get discouraged. Come back to this guide when its finished :)</li>
+</ul>
+<p><img src="/images/blockchain/ada-tutorial/blockchainsync.png" alt="Wallet Syncing"></p>
+<h1 id="depositing-ada-to-our-wallet">Depositing ADA to our wallet</h1>
+<p>Now that our wallet is synced, we can start sending ADA to this wallet for purposes of staking. It&rsquo;s also way more secure in this private wallet than any cryptocurrency exchange.</p>
+<p>In the main menu of Daedalus, click on &ldquo;Receive&rdquo;</p>
+<ul>
+<li>Copy any of the dozens of addresses listed to your clipboard</li>
+<li>All of these fancy/crazy letters are just a way to publicly denote your wallet.</li>
+</ul>
+<p>In your crypto exchange, transfer your ADA to this address that you then should paste in as the receiving address. There are plenty of guides online to do this and your crypto exchange will explain it better than I ever could.</p>
+<p>Sometimes it takes a few moments, but soon enough you should see X ADA next to your wallet name in Daedalus, indicating the amount you now have in your wallet! Make sure you have <strong>at least</strong> 10 ADA in your Daedalus wallet, then continue this guide.</p>
+<h1 id="delegating-to-a-staking-pool">Delegating to a Staking Pool</h1>
+<p>Now its time to figure out what staking pool we want to delegate our funds to! The good news here is that <strong>you can withdraw or unstake your funds at any time</strong> and that <strong>the operators of a staking pool have no direct access to your funds at all</strong>.</p>
+<p>On the left hand side of the Daedalus main menu, click on the icon that looks like a bunch of interconnected dots. This is the stake pool menu.</p>
+<p>You will see a bunch of stake pools listed below sorted in order of popularity. Generally, if you want the most ROI, you want to delegate to a stake pool that has:</p>
+<ul>
+<li>Low pool margin (this is the amount of ADA that the operator takes from your rewards! A lot of pools offer 0% margin - find those!)</li>
+<li>High pledge rate (the higher the pledge rate, the more rewards are produced as more blocks are minted per epoch)</li>
+<li>There are a bunch of other factors that are listed, but for the sake of this tutorial I will keep it at that. See below.</li>
+</ul>
+<p>Note: Small pool operators may have less potential for ROI, but by pledging to a smaller pool over a bigger pool you are directly supporting the true decentralization of ADA as a cryptocurrency! Do your own research on this :)</p>
+<p><img src="/images/blockchain/ada-tutorial/stakepool.png" alt="Stakepool"></p>
+<p><img src="/images/blockchain/ada-tutorial/stakepool-stats.png" alt="Stakepool-stats"></p>
+<p>Click a stake pool that you want to delegate to, go through the simple dialogue, pay a small transaction fee and you are truly done. Your rewards will start populating in the epoch after next and will automatically be applied to your wallet! (passively compounded interest? cool!)</p>
+<ul>
+<li>Epochs are a fancy way of denoting time. As of the time of writing this article, each epoch is 5 days long.</li>
+</ul>
+<p><img src="/images/blockchain/ada-tutorial/cardanoepochs.png" alt="Cardano-Epochs"></p>
+<h1 id="reward-structure">Reward Structure</h1>
+<p>Shoutout to u/BICEP-pool on Reddit for this great graphic on how rewards are paid out.</p>
+<p><img src="/images/blockchain/ada-tutorial/rewards.png" alt="Rewards"></p>
+<h1 id="conclusion">Conclusion</h1>
+<p>I hope this guide was somewhat useful to you! Cardano is a super exciting up and coming Proof-of-Stake cryptocurrency - why not maximize on the amount of rewards we can heap simply by owning it?</p>
+<p>If you have any questions, please don&rsquo;t hesitate to reach out to me at <a href="mailto:sam@eigen.sh">sam@eigen.sh</a></p>
+<p>Best,</p>
+<p>Sam Eigen</p>
+<p>Creator of eigen.sh</p>
+
+  </article>
+</section>
+
+
+      </div>
+      
+        <footer class="footer">
+  <section class="container">
+    
+      <div class="sns-shares sp-sns-shares">
+        
+          <a class="sns-share twitter-share" href="https://twitter.com/intent/tweet?original_referer=https%3a%2f%2feigen.sh%2fblockchain%2fmanual-ada-staking%2f&ref_src=twsrc%5Etfw&text=Manually%20Staking%20Cardano%20%28ADA%29%20to%20Maximize%20Passive%20Income eigen.sh&tw_p=tweetbutton&url=https%3a%2f%2feigen.sh%2fblockchain%2fmanual-ada-staking%2f"><i class="fab fa-twitter"></i></a>
+        
+        
+        
+        
+        
+          <a class="sns-share linkedIn-share" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2feigen.sh%2fblockchain%2fmanual-ada-staking%2f"><i class="fab fa-linkedin"></i></a>
+        
+      </div>
+    
+    
+     
+
+  </section>
+</footer>
+<div class="fixed-bar">
+  <section class="container">
+    
+      <p id="privateTriggerText">Current projects: <a id="privateTrigger">Click!</a></p>
+    
+    
+      <div class="sns-shares pc-sns-shares">
+        
+          <a class="sns-share twitter-share" href="https://twitter.com/intent/tweet?original_referer=https%3a%2f%2feigen.sh%2fblockchain%2fmanual-ada-staking%2f&ref_src=twsrc%5Etfw&text=Manually%20Staking%20Cardano%20%28ADA%29%20to%20Maximize%20Passive%20Income eigen.sh&tw_p=tweetbutton&url=https%3a%2f%2feigen.sh%2fblockchain%2fmanual-ada-staking%2f"><i class="fab fa-twitter"></i></a>
+        
+        
+        
+        
+        
+          <a class="sns-share linkedIn-share" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2feigen.sh%2fblockchain%2fmanual-ada-staking%2f"><i class="fab fa-linkedin"></i></a>
+        
+      </div>
+    
+  </section>
+</div>
+
+      
+    </main>
+
+    
+
+  <script src="/js/app.js"></script>
+  
+  <script>
+  (function($) {
+    $(function() {
+      $('#privateTrigger').on('click', function() {
+        $('.private').slideToggle();
+        $('#privateTriggerText').text("Please don\u0027t hesitate to reach out if you have any questions!");
+      });
+    });
+   })(jQuery);
+  </script>
+  
+  </body>
+</html>
