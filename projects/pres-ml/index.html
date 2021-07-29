@@ -46,7 +46,7 @@
       <link href="https://eigen.sh/index.xml" rel="feed" type="application/rss+xml" title="eigen.sh" />
     
 
-    <meta name="generator" content="Hugo 0.82.1" />
+    <meta name="generator" content="Hugo 0.85.0" />
   </head>
 
   <body class="">
@@ -181,8 +181,8 @@ What do I want to figure out?</p>
 <p>I could get into the nitty gritty about the algorithms that make SVR work, but generally speaking one would use SVR to solve the same problems you would solve linear regression with. The key difference is that SVR also allows us to model non-linear relationships between variables and yields more flexibility to adjust the model by fine-tuning hyper-parameters in the code.</p>
 <h3 id="code">Code!</h3>
 <p>Importing some necessary modules, defining our features, importing csv data (in retrospect, CSV data is not ideal! if I refactored this today I would do it differently.)</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
@@ -218,7 +218,7 @@ What do I want to figure out?</p>
 <span class="n">initial</span> <span class="o">=</span> <span class="n">sc_t</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sc_S</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">S</span><span class="p">)))</span>
 <span class="n">new</span> <span class="o">=</span> <span class="n">sc_2020</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sc_S</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">S</span><span class="p">)))</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">futureElection</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">futureElection</span><span class="p">))</span>
 </code></pre></div><ul>
 <li>78.4% accuracy for kernel = &lsquo;poly&rsquo;</li>
 <li>79.8% accuracy for kernel = &lsquo;rbf&rsquo;</li>
@@ -296,7 +296,7 @@ What do I want to figure out?</p>
 <div class="fixed-bar">
   <section class="container">
     
-      <p id="privateTriggerText">Current projects: <a id="privateTrigger">Click!</a></p>
+      <p id="privateTriggerText">Current projects: <a id="privateTrigger">:)</a></p>
     
     
       <div class="sns-shares pc-sns-shares">
